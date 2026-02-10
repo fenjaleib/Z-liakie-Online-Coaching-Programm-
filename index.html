@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glutenfrei. Klar. Sicher. | Zöliakie Coaching</title>
+  <meta name="description" content="Coaching für Menschen mit Zöliakie: sicher essen, entspannt reisen, klar kommunizieren. 8-Wochen-Programm & 1:1 Begleitung." />
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --surface: rgba(255,255,255,0.06);
+      --surface2: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --muted2: rgba(255,255,255,0.55);
+      --border: rgba(255,255,255,0.12);
+      --accent: #e86b5a; /* rust */
+      --accent2: #9fd6c2; /* soft mint */
+      --shadow: 0 18px 40px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(232,107,90,0.22), transparent 60%),
+        radial-gradient(700px 400px at 85% 20%, rgba(159,214,194,0.18), transparent 60%),
+        radial-gradient(700px 500px at 50% 100%, rgba(255,255,255,0.06), transparent 60%),
+        var(--bg);
+      line-height: 1.5;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(var(--max), 100% - 40px); margin:0 auto; }
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 14px; border:1px solid var(--border);
+      background: rgba(0,0,0,0.25);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      backdrop-filter: blur(10px);
+    }
+    .dot{ width:8px; height:8px; border-radius:50%; background: var(--accent2); box-shadow:0 0 0 6px rgba(159,214,194,0.12); }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,15,20,0.72);
+      border-bottom:1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 700; letter-spacing: 0.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(232,107,90,0.95), rgba(159,214,194,0.85));
+      box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    nav ul{
+      list-style:none; padding:0; margin:0;
+      display:none; gap:18px; align-items:center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a:hover{ color: var(--text); }
+    .cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 600;
+      gap:10px;
+      transition: transform 120ms ease, background 120ms ease;
+    }
+    .cta.primary{
+      background: linear-gradient(135deg, rgba(232,107,90,0.92), rgba(232,107,90,0.68));
+      border-color: rgba(232,107,90,0.45);
+      box-shadow: 0 16px 34px rgba(232,107,90,0.18);
+    }
+    .cta:hover{ transform: translateY(-1px); }
+    .cta:active{ transform: translateY(0px); }
+    .menuBtn{
+      display:inline-flex;
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Mobile menu */
+    .mobileNav{
+      display:none;
+      padding: 0 0 16px 0;
+    }
+    .mobileNav a{
+      display:block;
+      padding:10px 0;
+      color: var(--muted);
+      border-top:1px solid var(--border);
+    }
+    .mobileNav a:hover{ color: var(--text); }
+
+    /* Hero */
+    .hero{ padding: 44px 0 26px; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    h1{
+      margin: 14px 0 12px;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+    .heroActions{
+      display:flex; flex-wrap:wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .subNote{
+      margin-top: 12px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .panel{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(12px);
+    }
+    .statRow{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+    .stat{
+      padding:14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.10);
+    }
+    .stat .k{ color: var(--muted2); font-size: 13px; }
+    .stat .v{ font-size: 18px; font-weight: 700; margin-top:6px; }
+
+    /* Sections */
+    section{ padding: 26px 0; }
+    .sectionTitle{
+      font-size: 22px;
+      margin:0 0 10px;
+      letter-spacing:-0.2px;
+    }
+    .sectionLead{ color: var(--muted); margin:0 0 16px; max-width: 70ch; }
+
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .card{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .card h3{ margin:0 0 8px; font-size: 16px; }
+    .card p{ margin:0; color: var(--muted); font-size: 14px; }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .tag{
+      display:inline-flex; align-items:center;
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.18);
+      font-size: 12px;
+      color: var(--muted);
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .faq details{
+      border:1px solid rgba(255,255,255,0.11);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      padding: 14px 16px;
+    }
+    .faq details + details{ margin-top:10px; }
+    .faq summary{
+      cursor:pointer;
+      font-weight: 700;
+      list-style:none;
+    }
+    .faq summary::-webkit-details-marker{ display:none; }
+    .faq p{ color: var(--muted); margin:10px 0 0; font-size: 14px; }
+
+    footer{
+      padding: 26px 0 34px;
+      color: var(--muted2);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 14px;
+    }
+
+    @media (min-width: 900px){
+      nav ul{ display:flex; }
+      .menuBtn{ display:none; }
+      .grid{ grid-template-columns: 1.15fr 0.85fr; gap: 18px; }
+      .statRow{ grid-template-columns: 1fr 1fr; }
+      .cards{ grid-template-columns: 1fr 1fr; }
+      .split{ grid-template-columns: 1fr 1fr; }
+      .hero{ padding: 64px 0 32px; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <div class="brand" aria-label="Brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px; color:var(--muted); font-weight:600;">Zöliakie Coaching</div>
+          <div style="font-size:15px;">Glutenfrei bewusst leben</div>
+        </div>
+      </div>
+
+      <nav aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#angebot">Angebot</a></li>
+          <li><a href="#ablauf">Ablauf</a></li>
+          <li><a href="#uebermich">Über mich</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="cta" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">Menü</button>
+    </div>
+
+    <div class="mobileNav" id="mobileNav" role="navigation" aria-label="Mobile Navigation">
+      <a href="#angebot">Angebot</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#uebermich">Über mich</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="grid">
+        <div>
+          <span class="pill"><span class="dot" aria-hidden="true"></span> Für Menschen mit Zöliakie, die sich im Alltag sicher fühlen wollen</span>
+          <h1>Glutenfrei leben, ohne dauernd zu kämpfen.</h1>
+          <p class="lead">
+            Du bekommst Struktur, klare Schritte und alltagstaugliche Kommunikation – damit du mit mehr Ruhe essen gehst,
+            entspannter reist und deinem Körper wieder vertraust.
+          </p>
+
+          <div class="heroActions">
+            <a class="cta primary" href="#kontakt">Kostenloses Kennenlernen anfragen</a>
+            <a class="cta" href="#angebot">Programm ansehen</a>
+          </div>
+          <div class="subNote">
+            Hinweis: Coaching ersetzt keine medizinische Beratung. Du bekommst Orientierung, Tools und Begleitung für deinen Alltag.
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Kurzüberblick">
+          <div style="display:flex; gap:10px; align-items:flex-start; justify-content:space-between;">
+            <div>
+              <div style="color:var(--muted2); font-size:13px;">Dein Ergebnis</div>
+              <div style="font-weight:800; font-size:20px; margin-top:4px;">Sicherheit. Klarheit. Leichtigkeit.</div>
+            </div>
+            <span class="tag">Online</span>
+          </div>
+
+          <div class="statRow" style="margin-top:14px;">
+            <div class="stat">
+              <div class="k">Format</div>
+              <div class="v">8-Wochen-Programm</div>
+            </div>
+            <div class="stat">
+              <div class="k">Optional</div>
+              <div class="v">1:1 Sessions</div>
+            </div>
+            <div class="stat">
+              <div class="k">Fokus</div>
+              <div class="v">Alltag & Kommunikation</div>
+            </div>
+            <div class="stat">
+              <div class="k">Support</div>
+              <div class="v">Workbook & Impulse</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; color:var(--muted); font-size:14px;">
+            Du willst erst prüfen, ob es passt? Klick auf „Kennenlernen anfragen“ und füll das kurze Formular aus.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="angebot">
+    <div class="container">
+      <h2 class="sectionTitle">Dein Angebot</h2>
+      <p class="sectionLead">
+        Kein Theorie-Overload. Du lernst, wie du dich im echten Leben souverän bewegst: beim Essen gehen, auf Reisen, im Job, in Beziehungen.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>8-Wochen Online-Programm</h3>
+          <p>Strukturierte Module, Übungen und klare Wochenaufgaben. Du baust Sicherheit Schritt für Schritt auf.</p>
+          <div style="margin-top:12px;">
+            <span class="tag">Klarer Wochenplan</span>
+            <span class="tag">Nervensystem & Stress</span>
+            <span class="tag">Grenzen & Kommunikation</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>1:1 Coaching (optional)</h3>
+          <p>Für deine konkreten Situationen: Restaurant, Familie, Reisen, Unsicherheit, Rückschläge – wir machen daraus einen Plan.</p>
+          <div style="margin-top:12px;">
+            <span class="tag">Individuell</span>
+            <span class="tag">Praktische Scripts</span>
+            <span class="tag">Umsetzung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ablauf">
+    <div class="container">
+      <h2 class="sectionTitle">So läuft’s ab</h2>
+      <p class="sectionLead">3 Schritte. Keine Umwege. Du weißt jederzeit, was als Nächstes dran ist.</p>
+
+      <div class="split">
+        <div class="card">
+          <h3>1) Kurzcheck</h3>
+          <p>Du beschreibst deine Situation. Wir klären Ziel, Kontext und die schnellsten Hebel.</p>
+        </div>
+        <div class="card">
+          <h3>2) Klarer Plan</h3>
+          <p>Du bekommst einen strukturierten Fahrplan: Kommunikation, Alltag, Routinen, mentale Stabilität.</p>
+        </div>
+        <div class="card">
+          <h3>3) Umsetzung</h3>
+          <p>Du trainierst konkrete Situationen: fragen, abgrenzen, sicher entscheiden, ruhig bleiben.</p>
+        </div>
+        <div class="card">
+          <h3>Bonus: Ressourcen</h3>
+          <p>Workbook, Vorlagen, Mini-Übungen. Du baust eine stabile Routine auf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="uebermich">
+    <div class="container">
+      <h2 class="sectionTitle">Über mich</h2>
+      <p class="sectionLead">
+        Hier kommt deine Kurz-Bio rein. 3–6 Sätze. Fokus auf: Warum du das machst, was du erlebt hast, und warum du dafür die richtige Begleitung bist.
+      </p>
+
+      <div class="panel">
+        <div class="split">
+          <div>
+            <h3 style="margin:0 0 10px;">Was du von mir bekommst</h3>
+            <p style="margin:0; color:var(--muted); font-size:14px;">
+              Klarheit statt Bauchgefühl-Chaos. Konkrete Worte statt „Ich weiß nicht, was ich sagen soll“.
+              Struktur statt ständiger Unsicherheit.
+            </p>
+            <div style="margin-top:12px;">
+              <span class="tag">Klar</span>
+              <span class="tag">Alltagstauglich</span>
+              <span class="tag">Empathisch + direkt</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="margin:0 0 10px;">Mini-Credibility (optional)</h3>
+            <p style="margin:0; color:var(--muted); font-size:14px;">
+              Hier kannst du 2–4 Belege platzieren: z.B. „Systemisches Coaching“, „Psychologische Beratung“, „GO! Startup Accelerator“, „X Jahre Erfahrung“.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="sectionTitle">FAQ</h2>
+      <p class="sectionLead">Die typischen Fragen, die vor dem Start auftauchen.</p>
+
+      <details>
+        <summary>Ist das medizinische Beratung?</summary>
+        <p>Nein. Du bekommst Coaching, Struktur und Tools für deinen Alltag. Medizinische Fragen klärst du mit Fachpersonen.</p>
+      </details>
+
+      <details>
+        <summary>Für wen ist das Programm geeignet?</summary>
+        <p>Für Menschen mit Zöliakie, die mehr Sicherheit, klare Kommunikation und entspanntere Routinen aufbauen wollen – unabhängig vom Diagnosezeitpunkt.</p>
+      </details>
+
+      <details>
+        <summary>Wie schnell sehe ich Ergebnisse?</summary>
+        <p>Wenn du die Übungen umsetzt, spürst du oft innerhalb weniger Wochen mehr Stabilität. Es geht um Training und Wiederholung.</p>
+      </details>
+
+      <details>
+        <summary>Wie starte ich?</summary>
+        <p>Klick auf „Kennenlernen anfragen“ und füll das kurze Google-Formular aus. Ich melde mich danach bei dir.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="container">
+      <h2 class="sectionTitle">Kontakt</h2>
+      <p class="sectionLead">Klick auf den Button und füll das kurze Formular aus. Danach melde ich mich bei dir.</p>
+
+      <div class="split">
+        <div class="panel">
+          <h3 style="margin:0 0 12px;">Kennenlernen anfragen</h3>
+          <p style="margin:0 0 14px; color:var(--muted); font-size:14px;">
+            Ein paar Fragen helfen mir, dich direkt passend zu unterstützen.
+          </p>
+
+          <a class="cta primary"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSd_jCpwYM2iET8a_n-cqzeFcNOq1kKmhzJliAHnYvOdPC7aGA/viewform?usp=dialog"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Google Formular öffnen">
+            Google Formular öffnen
+          </a>
+
+          <div class="subNote">
+            Öffnet in einem neuen Tab.
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 style="margin:0 0 12px;">Alternativ</h3>
+          <p style="margin:0; color:var(--muted); font-size:14px;">
+            Setz hier deine Links:
+          </p>
+          <div style="margin-top:12px; display:grid; gap:10px;">
+            <a class="cta" href="#" aria-label="E-Mail Link">📩 E-Mail</a>
+            <a class="cta" href="#" aria-label="Instagram Link">📷 Instagram</a>
+            <a class="cta"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSd_jCpwYM2iET8a_n-cqzeFcNOq1kKmhzJliAHnYvOdPC7aGA/viewform?usp=dialog"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Google Formular öffnen">
+              📝 Formular
+            </a>
+          </div>
+
+          <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border);">
+            <p style="margin:0; color:var(--muted2); font-size:13px;">
+              Rechtliches (Platzhalter): Impressum · Datenschutz · Disclaimer
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Zöliakie Coaching · Alle Rechte vorbehalten
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  btn?.addEventListener('click', () => {
+    const open = mobileNav.style.display === 'block';
+    mobileNav.style.display = open ? 'none' : 'block';
+    btn.setAttribute('aria-expanded', String(!open));
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
